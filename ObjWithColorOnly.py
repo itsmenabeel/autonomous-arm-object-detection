@@ -12,11 +12,11 @@ def send_to_arduino(board, data):
     board.write(data.encode())
     time.sleep(0.1)
 
-# Capture video from camera (0 is usually the default camera)
+# Capture video from camera
 cap = cv2.VideoCapture(0)
 
 # Get screen resolution
-screen_width, screen_height = 1280, 720  # Update with your actual screen resolution
+screen_width, screen_height = 1280, 720
 screen_center = (screen_width // 2, screen_height // 2)
 
 # Create a window to display the video feed
@@ -67,22 +67,18 @@ while True:
             center_point = (center_x_cm, center_y_cm)
             #send_to_arduino(arduino, f"{center_x},{center_y}\n")
 
-            # Calculate the distance from the center of the monitor
             distance = calculate_distance(center_point, screen_center)
 
-            # Draw bounding box
             cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
 
-            # Put text on the frame with object label and distance
             cv2.putText(frame, f"{label} - Center: {center_point}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
     # Display the frame
     cv2.imshow("Object Detection", frame)
 
-    # Break the loop when 'q' key is pressed
+    # Break loop
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# Release the camera and close all windows
 cap.release()
 cv2.destroyAllWindows()
