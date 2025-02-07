@@ -4,7 +4,7 @@ import serial as ser
 import time
 
 #arduino = ser.Serial("COM8", 115200)
-# Function to calculate distance from the center of the monitor
+# Calculate the distance from the center of the monitor
 def calculate_distance(center_point, screen_center):
     return np.linalg.norm(np.array(center_point) - np.array(screen_center))
 
