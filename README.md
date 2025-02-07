@@ -1,5 +1,5 @@
 # autonomous-arm-object-detection
-This machine vision project was done for a competition about autonomous pick-and-place arms that needed to pick up specific objects and place them in dedicated spots. The project involved a custom object detection model that can recognize 3 specific objects, a blue cube, a red prism and a yellow cylinder.
+This machine vision project was done for a competition about autonomous pick-and-place robotic arms that needed to pick up specific objects and place them in dedicated spots. The project involved a custom object detection model that can recognize 3 specific objects, a blue cube, a red prism and a yellow cylinder.
 
 ShapeDetector.py: The main code file
 ObjWithColorOnly.py: This file is for detecting the objects with their specific colors only
